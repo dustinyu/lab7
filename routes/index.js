@@ -6,13 +6,14 @@ var models = require('../models');
  */
 
 exports.view = function(req, res){
-
 	models.Project
 		.find()
 		.sort('date')
 		.exec(renderProjects);
 
 	function renderProjects(err, projects) {
+		//console.log("projects are: " + projects); //DEBUG
+
 		res.render('index', { 'projects': projects });
 	}
 
